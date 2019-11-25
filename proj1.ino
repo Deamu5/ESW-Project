@@ -87,8 +87,8 @@ static void print_date(TinyGPS &gps)
 #define SECRET_SSID "tarmac"   
 #define SECRET_PASS "12345678"
   
-#define SECRET_WRITE_APIKEY "A7YDK1O23YQ9LO68"
-//#define SECRET_WRITE_APIKEY "IB5GN3CG3HFZCZ7A"
+//#define SECRET_WRITE_APIKEY "A7YDK1O23YQ9LO68"
+#define SECRET_WRITE_APIKEY "IB5GN3CG3HFZCZ7A"
 SDS011 my_sds;  
 DHT dht(DHTPIN, DHTTYPE);
 MiCS6814 sensor;
@@ -97,8 +97,8 @@ char ssid[] = SECRET_SSID;   // your network SSID (name)
 char pass[] = SECRET_PASS;   // your network password
 WiFiClient  client;
 
-unsigned long myChannelNumber=868883;
-//unsigned long myChannelNumber =897898;
+//unsigned long myChannelNumber=868883;
+unsigned long myChannelNumber =897898;
 
 const char myWriteAPIKey[] = SECRET_WRITE_APIKEY;
 
@@ -276,8 +276,8 @@ error = my_sds.read(&p25,&p10);
   DhtSensor();
   PmSensor(); 
   GasSensor();
-  gps_Read();
-  st = st + "OAP5_1";
+  //gps_Read();
+  st = st + "OAP5_2";
   //delay(1000);
   Serial.println("\n\n"); 
   
@@ -289,7 +289,7 @@ error = my_sds.read(&p25,&p10);
   else{
     Serial.println("Problem updating channel. HTTP error code " + String(x));
   }
-  createCI("Team11_Outdoor_Air_Pollution_Mobile", "node_1", st);
+  createCI("Team11_Outdoor_Air_Pollution_Mobile", "node_2", st);
 //Serial.println(WiFi.macAddress());
  delay(15000);
   }
